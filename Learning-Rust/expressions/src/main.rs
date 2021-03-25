@@ -82,7 +82,11 @@ fn main() {
     /*
      * Conditional loops with while statements be like lmfao 
      * This eliminates a lot of nesting that would be needed if we used 
-     * the other consturcts. 
+     * the other consturcts. This is error prone though, this could 
+     * cause the program to have some error if the index length is 
+     * incorrect. This is also slow since the compiler adds runtime code 
+     * to perform the conditional check on every elem,ent on every iteration
+     * through the loop. 
      */
 
     let mut while_number = 3; 
@@ -90,7 +94,7 @@ fn main() {
     while while_number != 0 {
         println!("{}!", while_number);
 
-        number -= 1;
+        while_number -= 1;
     }
 
     println!("LIFTOFF!!!");
@@ -104,4 +108,29 @@ fn main() {
         index += 1;
     }
 
+    /*
+     * For an alternative that could add a better flavor we 
+     * could use a for loop and execute some code for each item in a 
+     * collection, such as below. Now we the below code is run we can see that 
+     * we get hte same output as above, the only difference is that we 
+     * increased the safety of the code and eliminated the chance of bugs
+     * The safety and concisness of for loops make them the most commonly used loop 
+     * construct in Rust. 
+     */
+
+    let b = [10, 20, 30, 40, 50]; 
+
+    for element in a.iter() { 
+        println!("The value is: {}", element);
+    }
+
+    /*
+     * Out countdown for liftoff can be rewrriten as this with a for loop 
+     * with safety in mind. 
+     */
+    
+    for liftoff_num in (1..4).rev() {
+        println!("{}!", liftoff_num);
+    }
+    println!("LIFTOFF!!!");
 }
