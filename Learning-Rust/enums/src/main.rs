@@ -55,8 +55,21 @@ struct MoveMessage {
 
 struct WriteMessage(String); // tuple struct 
 
-struct ChangeColorMessage(i32, i32, i32);
+struct ChangeColorMessage(i32, i32, i32); // tuple struct 
 
+impl Message {
+	fn call(&self) {
+	// sudo method 
+}
+}
+
+let m = Message::write(String::from("Some bullshit"));
+m.call();
+
+enum Option<T> {
+	Some(T),
+	None,
+}
 enum IpAddr { 
 	V4(Ipv4Addr),
 	V6(Ipv6Addr),
