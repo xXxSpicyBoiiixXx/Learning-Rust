@@ -63,8 +63,6 @@ impl Message {
 }
 }
 
-let m = Message::write(String::from("Some bullshit"));
-m.call();
 
 enum Option<T> {
 	Some(T),
@@ -78,7 +76,7 @@ enum IpAddr {
 enum Message { 
 	Quit, 
 	Move { x: i32, y: i32 }, 
-	Write(String) 
+	Write(String), 
 	ChangeColor(i32, i32, i32),	
 }
 fn main() {
@@ -86,16 +84,34 @@ fn main() {
 let four = IpAddrKind::V4;
 let six = IpAddrKind::V6; 
 
-route(IPAddrKind::V4)
-route(IpAddrKind::V6)
-    
-}
+route(IPAddrKind::V4);
+route(IpAddrKind::V6);
+ 
+let some_number = Some(5);
+let some_string = Some("a string"); 
+
+let absent_numer: Option<i32> = None;
+
+let m = Message::write(String::from("Some bullshit"));
+m.call();
+/*
+ This next code will have some compile errors 
+
+let x: i8 = 5;
+let y: Option<i8> = Some(5);
+
+let sum = x + y; 
+
+RUST DOES NOT LIKE 
+
+we can't add i8 to Option<i8>
+*/   
 
 // The bottom is the previous version for IPv4
 // let home = IpAddr::V4(String::from("127.0.0.1"));
 
-let home IpAddr::V4(127,0,0,1); 
+let home = IpAddr::V4(127,0,0,1); 
 
 let loopback = IpAddr::V6(String::from("::1"));
-
+}
 fn route(ip_kind: IpAddrKind) {} 
