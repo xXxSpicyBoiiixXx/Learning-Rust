@@ -1,11 +1,11 @@
 mod front_of_house {
-	mod hosting { 
+	pub mod hosting { 
 		fn add_to_waitlist() {}
 	
 		fn seat_at_table() {}
 	}
 
-	mod serving {
+	pub mod serving {
 		fn take_order() {}
 	
 		fn serve_order() {}
@@ -21,4 +21,16 @@ pub fn eat_at_restaurant() {
 	
 	// Relative Path 
 	front_of_house::hosting::add_to_waitlist();
+}
+
+fn server_order() {}
+
+mod back_of_house {
+	fn fix_incorrect_order() {
+		cook_order(); 
+		super::server_order();
+	}
+
+	fn cook_order() {}
+
 }
