@@ -1,3 +1,15 @@
+enum SpreadsheetCell {
+	Int(i32),
+	Float(f64), 
+	Text(String), 
+}
+
+/*let row = vec![
+	SpreadsheetCell::Int(3),
+	SpreadsheetCell::Text(String::from("blue")),
+	SpreadsheetCell::Float(10.13),
+];*/
+
 fn main() {
     	// Below is a type annotation, but isn't realistic 
 	// let v: Vec<i32> = Vec::new();
@@ -26,5 +38,34 @@ fn main() {
 	// to panic because its regerences a nonecistent element. 
 
 	let does_not_exist = v.get(100); // <---- returns "None" 
+	println!("{:?}", does_not_exist);
 
+	/*
+	let mut v = vec![1, 2, 3, 4, 5]; 
+	
+	let first = &v[0];
+	
+	v.push(6);
+	
+	println!("The first element is: {}", first); 
+	
+	*/
+	
+	// Iterating with a for loop 
+	let v_it = vec![100, 32, 57]; 
+	for i in &v_it {
+		println!("{}", i);
+	}
+	
+	// Iterating with a mutable references 
+	let mut v_mut = vec![100, 32, 57];
+	for i in &mut v_mut { 
+		*i += 50; 
+	}
+
+	let row = vec![
+		SpreadsheetCell::Int(3),
+		SpreadsheetCell::Text(String::from("blue")),
+		SpreadsheetCell::Float(10.22),
+	];
 } // <----- v and v1 goes out of scope here and is freed
