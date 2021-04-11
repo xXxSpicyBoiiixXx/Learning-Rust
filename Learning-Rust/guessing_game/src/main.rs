@@ -1,6 +1,17 @@
-use std::io;
-use std::cmp::Ordering;
+//use std::io;
+//use std::cmp::Ordering;
+
+/*
+ * Instead of using what is above we can combine them
+ * as shown below. 
+ */
+
+use std::{cmp::Ordering, io};
 use rand::Rng;
+
+// Global operator 
+use std::collections::*;
+
 
 fn main() {
     println!("Guess the number!");
