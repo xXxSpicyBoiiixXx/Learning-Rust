@@ -60,6 +60,54 @@ fn main() {
 	}
 
 	// Each key can only have one value associated with it. 
+
+	/*
+	 * Updating a hash map 
+	 * 
+	 * Although the number of keys and values is growable,
+	 * each key can only have one value associated with it at a 
+	 * time. When you want to change the data in a hash map, 
+	 * you decide how to handle the case when a key already has 
+	 * a value assiged to it. You could replace the old value 
+	 * wit hthe new value, completely disregarding the old vlaue.
+	 * You could also keep the old value and ignore the new 
+	 * value, only adding the new value if the key doesn't 
+	 * already exist. Or you could combine the two.  
+	 */
+
+	// If we insert a key and a value into a hash map and then insert that same key 
+	// with a different vlaue, the value assoicated with that key will be replaced. 
+	
+	let mut scores_replacement = HashMap::new();
+	
+	scores_replacement.insert(String::from("Blue"), 10);
+	scores_replacement.insert(String::from("Blue"), 25);
+	
+	println!("{:?}", scores_replacement);
+
+	// Inserting a value if the key has no value 
+	// It's common to check whether a particular key has a value and, if it 
+	// doesn't, insert a value for it 
+	
+	let mut scores_inserting = HashMap::new(); 
+	scores_inserting.insert(String::from("Blue"), 10); 
+	
+	scores_inserting.entry(String::from("Yellow")).or_insert(50); 
+	scores_inserting.entry(String::from("Blue")).or_insert(50);
+	
+	println!("{:?}", scores_inserting);
+	
+	// Updating a value based on the old value 
+	
+	let texting = "yooooooooo oooooooooo oooooooooo ooooooo"; 
+	let mut mapping = HashMap::new(); 
+
+	for word in texting.split_whitespace() {
+		let count = mapping.entry(word).or_insert(0); 
+		*count += 1;
+	}
+		
+	println!("{:?}", mapping); 
 println!("Compiles");
 
 }
