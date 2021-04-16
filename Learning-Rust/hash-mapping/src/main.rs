@@ -108,6 +108,5 @@ fn main() {
 	}
 		
 	println!("{:?}", mapping); 
-println!("Compiles");
 
 }

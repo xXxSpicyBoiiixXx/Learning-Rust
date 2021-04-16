@@ -1,0 +1,18 @@
+    Finished dev [unoptimized + debuginfo] target(s) in 0.00s
+     Running `target/debug/error-handling`
+thread 'main' panicked at 'index out of bounds: the len is 3 but the index is 99', src/main.rs:9:6
+stack backtrace:
+   0: _rust_begin_unwind
+   1: core::panicking::panic_fmt
+   2: core::panicking::panic_bounds_check
+   3: <usize as core::slice::index::SliceIndex<[T]>>::index
+             at /private/tmp/rust-20210301-17735-1i94w2q/rustc-1.50.0-src/library/core/src/slice/index.rs:182:10
+   4: core::slice::index::<impl core::ops::index::Index<I> for [T]>::index
+             at /private/tmp/rust-20210301-17735-1i94w2q/rustc-1.50.0-src/library/core/src/slice/index.rs:15:9
+   5: <alloc::vec::Vec<T,A> as core::ops::index::Index<I>>::index
+             at /private/tmp/rust-20210301-17735-1i94w2q/rustc-1.50.0-src/library/alloc/src/vec.rs:2161:9
+   6: error_handling::main
+             at ./src/main.rs:9:3
+   7: core::ops::function::FnOnce::call_once
+             at /private/tmp/rust-20210301-17735-1i94w2q/rustc-1.50.0-src/library/core/src/ops/function.rs:227:5
+note: Some details are omitted, run with `RUST_BACKTRACE=full` for a verbose backtrace.
