@@ -3,6 +3,7 @@ use std::io::ErrorKind;
 use std::io;
 use std::io::Read; 
 use std::fs;
+use std::error::Error; 
 
 enum Result<T ,E> {
 	Ok(T), 
@@ -133,3 +134,9 @@ fn main() {
 	
 }
 
+
+fn main1() -> Result<(), Box<dyn Error>> {
+	let f = File::open("hello6.txt")>;
+	
+	Ok(())
+}
